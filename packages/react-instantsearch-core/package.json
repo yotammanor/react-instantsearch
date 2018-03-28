@@ -1,7 +1,7 @@
 {
   "name": "react-instantsearch-core",
   "version": "5.0.1",
-  "description": "⚡ Lightning-fast search for React and React Native apps, by Algolia",
+  "description": "⚡ Lightning-fast search for React, by Algolia",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "license": "MIT",
@@ -62,7 +62,7 @@
   "bundlesize": [
     {
       "path": "dist/umd/ReactInstantSearchCore.min.js",
-      "maxSize": "34 kB"
+      "maxSize": "40 kB"
     }
   ]
 }

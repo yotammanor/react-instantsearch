@@ -1,6 +1,6 @@
 import React, { Component, Children } from 'react';
 import PropTypes from 'prop-types';
-import createInstantSearchManager from '../createInstantSearchManager';
+import createInstantSearchManager from '../core/createInstantSearchManager';
 
 function validateNextProps(props, nextProps) {
   if (!props.searchState && nextProps.searchState) {

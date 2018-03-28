@@ -1,12 +1,12 @@
 import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import createInstantSearchManager from '../../createInstantSearchManager';
+import createInstantSearchManager from '../../core/createInstantSearchManager';
 import InstantSearch from '../InstantSearch';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('../../createInstantSearchManager', () =>
+jest.mock('../../core/createInstantSearchManager', () =>
   jest.fn(() => ({
     context: {},
   }))
