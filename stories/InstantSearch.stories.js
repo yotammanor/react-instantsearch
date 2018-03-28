@@ -1,11 +1,7 @@
 import React from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
-import {
-  InstantSearch,
-  SearchBox,
-  Hits,
-} from '../packages/react-instantsearch/dom';
+import { InstantSearch, SearchBox, Hits } from 'react-instantsearch-dom';
 import { displayName, filterProps } from './util';
 
 setAddon(JSXAddon);
