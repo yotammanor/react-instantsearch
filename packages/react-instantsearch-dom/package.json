@@ -61,7 +61,7 @@
   },
   "bundlesize": [
     {
-      "path": "dist/umd/ReactInstantSearchCore.min.js",
+      "path": "dist/umd/ReactInstantSearchDOM.min.js",
       "maxSize": "62 kB"
     }
   ]
