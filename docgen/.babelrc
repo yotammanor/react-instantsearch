@@ -18,7 +18,18 @@
       ],
       "plugins": [
         "lodash",
-        "transform-react-jsx-source"
+        "inline-json-import",
+        [
+          "transform-runtime",
+          {
+            "helpers": false,
+            "polyfill": false,
+            "regenerator": true
+          }
+        ],
+        "transform-react-jsx-source",
+        "react-hot-loader/babel",
+        "transform-regenerator"
       ]
     },
     "production": {
@@ -38,7 +49,8 @@
         "stage-2"
       ],
       "plugins": [
-        "lodash"
+        "lodash",
+        "inline-json-import"
       ]
     }
   }
