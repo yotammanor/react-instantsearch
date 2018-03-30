@@ -1,12 +1,3 @@
-import { createIndex } from 'react-instantsearch-core';
-
-const Index = createIndex({
-  Root: 'div',
-  props: {
-    className: 'ais-MultiIndex__root',
-  },
-});
-
 // Core
 export { createConnector } from 'react-instantsearch-core';
 
@@ -38,7 +29,7 @@ export { connectToggleRefinement } from 'react-instantsearch-core';
 
 // DOM
 export { default as InstantSearch } from './widgets/InstantSearch';
-export { Index };
+export { default as Index } from './widgets/Index';
 export { default as CurrentRefinements } from './widgets/CurrentRefinements';
 export { default as HierarchicalMenu } from './widgets/HierarchicalMenu';
 export { default as Highlight } from './widgets/Highlight';
