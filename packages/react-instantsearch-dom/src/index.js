@@ -1,12 +1,4 @@
-import algoliasearch from 'algoliasearch/lite';
-import { createInstantSearch, createIndex } from 'react-instantsearch-core';
-
-const InstantSearch = createInstantSearch(algoliasearch, {
-  Root: 'div',
-  props: {
-    className: 'ais-InstantSearch__root',
-  },
-});
+import { createIndex } from 'react-instantsearch-core';
 
 const Index = createIndex({
   Root: 'div',
@@ -45,7 +37,7 @@ export { connectStats } from 'react-instantsearch-core';
 export { connectToggleRefinement } from 'react-instantsearch-core';
 
 // DOM
-export { InstantSearch };
+export { default as InstantSearch } from './widgets/InstantSearch';
 export { Index };
 export { default as CurrentRefinements } from './widgets/CurrentRefinements';
 export { default as HierarchicalMenu } from './widgets/HierarchicalMenu';
