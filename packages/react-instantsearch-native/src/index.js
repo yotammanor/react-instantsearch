@@ -1,10 +1,3 @@
-import { View } from 'react-native';
-import { createIndex } from 'react-instantsearch-core';
-
-const Index = createIndex({
-  Root: View,
-});
-
 // Core
 export { createConnector } from 'react-instantsearch-core';
 
@@ -36,4 +29,4 @@ export { connectToggleRefinement } from 'react-instantsearch-core';
 
 // Native
 export { default as InstantSearch } from './widgets/InstantSearch';
-export { Index };
+export { default as Index } from './widgets/Index';
