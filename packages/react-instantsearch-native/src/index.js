@@ -1,10 +1,5 @@
-import algoliasearch from 'algoliasearch/lite';
 import { View } from 'react-native';
-import { createInstantSearch, createIndex } from 'react-instantsearch-core';
-
-const InstantSearch = createInstantSearch(algoliasearch, {
-  Root: View,
-});
+import { createIndex } from 'react-instantsearch-core';
 
 const Index = createIndex({
   Root: View,
@@ -40,5 +35,5 @@ export { connectStats } from 'react-instantsearch-core';
 export { connectToggleRefinement } from 'react-instantsearch-core';
 
 // Native
-export { InstantSearch };
+export { default as InstantSearch } from './widgets/InstantSearch';
 export { Index };
