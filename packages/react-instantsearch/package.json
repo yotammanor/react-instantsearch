@@ -2,8 +2,8 @@
   "name": "react-instantsearch",
   "version": "5.0.1",
   "description": "⚡ Lightning-fast search for React and React Native apps, by Algolia",
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
+  "main": "index.js",
+  "module": "es/index.js",
   "license": "MIT",
   "homepage": "https://community.algolia.com/react-instantsearch",
   "repository": {
@@ -14,10 +14,6 @@
     "name": "Algolia, Inc.",
     "url": "https://www.algolia.com"
   },
-  "files": [
-    "README.md",
-    "dist"
-  ],
   "keywords": [
     "algolia",
     "components",
@@ -29,10 +25,13 @@
   ],
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:umd",
-    "build:cjs": "babel src --out-dir dist/cjs --ignore __tests__,__mocks__ --quiet",
+    "build:cjs": "babel src --out-dir dist --ignore __tests__,__mocks__ --quiet",
     "build:es": "BABEL_ENV=es babel src --out-dir dist/es --ignore __tests__,__mocks__ --quiet",
     "build:umd": "BABEL_ENV=es rollup -c rollup.config.js",
-    "test:size": "bundlesize"
+    "test:size": "bundlesize",
+    "clean": "rm -rf dist",
+    "prepare": "mkdir -p dist && cp {package.json,README.md} dist",
+    "release": "yarn clean && yarn prepare && yarn build && echo 'yarn publish'"
   },
   "dependencies": {
     "react-instantsearch-core": "^5.0.1",
