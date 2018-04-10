@@ -15,6 +15,7 @@
     "dist"
   ],
   "scripts": {
+    "clean": "rm -rf dist",
     "build": "yarn build:cjs && yarn build:es",
     "build:cjs": "babel src --out-dir dist/cjs --ignore __tests__,__mocks__ --quiet",
     "build:es": "BABEL_ENV=es babel src --out-dir dist/es --ignore __tests__,__mocks__ --quiet",
