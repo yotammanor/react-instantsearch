@@ -5,6 +5,9 @@ export {
   default as connectCurrentRefinements,
 } from './src/connectors/connectCurrentRefinements.js';
 export {
+  default as connectGeoSearch,
+} from './src/connectors/connectGeoSearch.js';
+export {
   default as connectHierarchicalMenu,
 } from './src/connectors/connectHierarchicalMenu.js';
 export {
