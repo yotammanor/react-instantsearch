@@ -22,9 +22,10 @@ export class Control extends Component {
       isRefineOnMapMove: PropTypes.bool.isRequired,
       toggleRefineOnMapMove: PropTypes.func.isRequired,
       hasMapMoveSinceLastRefine: PropTypes.bool.isRequired,
+      refineWithInstance: PropTypes.func.isRequired,
     }).isRequired,
     [GOOGLE_MAPS_CONTEXT]: PropTypes.shape({
-      refineWithBoundingBox: PropTypes.func.isRequired,
+      instance: PropTypes.object.isRequired,
     }).isRequired,
   };
 
@@ -51,11 +52,12 @@ export class Control extends Component {
 
   render() {
     const { translate } = this.props;
-    const { refineWithBoundingBox } = this.getGoogleMapsContext();
+    const { instance } = this.getGoogleMapsContext();
     const {
       isRefineOnMapMove,
       hasMapMoveSinceLastRefine,
       toggleRefineOnMapMove,
+      refineWithInstance,
     } = this.getStateContext();
 
     return (
@@ -73,7 +75,7 @@ export class Control extends Component {
         ) : (
           <button
             className="ais-GeoSearch-redo"
-            onClick={refineWithBoundingBox}
+            onClick={() => refineWithInstance(instance)}
           >
             {translate('redo')}
           </button>
