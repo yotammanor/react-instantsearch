@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { setAddon, storiesOf } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
+import { Configure } from '../packages/react-instantsearch/dom';
 import {
   GoogleMapsLoader,
   GeoSearch,
@@ -10,7 +11,7 @@ import {
   Control,
 } from '../packages/react-instantsearch-dom-geo/src/index';
 import { displayName, filterProps, WrapWithHits } from './util';
-import { Configure } from '../packages/react-instantsearch/dom';
+import Places from './places';
 
 setAddon(JSXAddon);
 
@@ -46,6 +47,48 @@ stories.addWithJSX(
             <GeoSearch google={google}>
               {({ hits }) => (
                 <Fragment>
+                  {hits.map(hit => <Marker key={hit.objectID} hit={hit} />)}
+                </Fragment>
+              )}
+            </GeoSearch>
+          )}
+        </GoogleMapsLoader>
+      </Container>
+    </WrapWithHits>
+  ),
+  {
+    displayName,
+    filterProps,
+  }
+);
+
+// With Places
+stories.addWithJSX(
+  'with Places',
+  () => (
+    <WrapWithHits
+      indexName="airbnb"
+      linkedStoryGroup="GeoSearch"
+      searchParameters={{
+        hitsPerPage: 20,
+        aroundRadius: 5000,
+      }}
+    >
+      <Places
+        defaultRefinement={{
+          lat: 37.7793,
+          lng: -122.419,
+        }}
+      />
+
+      <Container>
+        <GoogleMapsLoader apiKey="AIzaSyCl2TTJXpwxGuuc2zQZkAlIkWhpYbyjjP8">
+          {google => (
+            <GeoSearch google={google} initialZoom={12}>
+              {({ hits }) => (
+                <Fragment>
+                  <Control />
+
                   {hits.map(hit => <Marker key={hit.objectID} hit={hit} />)}
                 </Fragment>
               )}
