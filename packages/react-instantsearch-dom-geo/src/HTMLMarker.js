@@ -23,7 +23,11 @@ class HTMLMarker extends Component {
     ...createListenersPropType(eventTypes),
     hit: GeolocHitPropType.isRequired,
     children: PropTypes.node.isRequired,
-    options: PropTypes.object,
+    className: PropTypes.string,
+    anchor: PropTypes.shape({
+      x: PropTypes.number.isRequired,
+      y: PropTypes.number.isRequired,
+    }),
   };
 
   static contextTypes = {
@@ -34,7 +38,11 @@ class HTMLMarker extends Component {
   };
 
   static defaultProps = {
-    options: {},
+    className: '',
+    anchor: {
+      x: 0,
+      y: 0,
+    },
   };
 
   static isReact16() {
@@ -46,7 +54,7 @@ class HTMLMarker extends Component {
   };
 
   componentDidMount() {
-    const { hit, options } = this.props;
+    const { hit, className, anchor } = this.props;
     const { google, instance } = this.context[GOOGLE_MAPS_CONTEXT];
     // Not the best way to create the reference of the HTMLMarker
     // but since the Google object is required didn't find another
@@ -56,7 +64,8 @@ class HTMLMarker extends Component {
     const marker = new Marker({
       map: instance,
       position: hit._geoloc,
-      ...options,
+      className,
+      anchor,
     });
 
     this.removeListeners = registerEvents(eventTypes, this.props, marker);

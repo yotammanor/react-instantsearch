@@ -2,6 +2,13 @@
 
 exports[`HTMLMarker with portal expect to render correctly 1`] = `
 <HTMLMarker
+  anchor={
+    Object {
+      "x": 0,
+      "y": 0,
+    }
+  }
+  className=""
   hit={
     Object {
       "_geoloc": Object {
@@ -10,7 +17,6 @@ exports[`HTMLMarker with portal expect to render correctly 1`] = `
       },
     }
   }
-  options={Object {}}
 >
   <span>
     This is the children.
@@ -20,6 +26,13 @@ exports[`HTMLMarker with portal expect to render correctly 1`] = `
 
 exports[`HTMLMarker with unstable_renderSubtreeIntoContainer expect to render correctly 1`] = `
 <HTMLMarker
+  anchor={
+    Object {
+      "x": 0,
+      "y": 0,
+    }
+  }
+  className=""
   hit={
     Object {
       "_geoloc": Object {
@@ -28,6 +41,5 @@ exports[`HTMLMarker with unstable_renderSubtreeIntoContainer expect to render co
       },
     }
   }
-  options={Object {}}
 />
 `;

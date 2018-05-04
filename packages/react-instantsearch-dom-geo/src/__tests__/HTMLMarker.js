@@ -89,12 +89,10 @@ describe('HTMLMarker', () => {
 
       const props = {
         ...defaultProps,
-        options: {
-          className: 'my-marker',
-          anchor: {
-            x: 10,
-            y: 10,
-          },
+        className: 'my-marker',
+        anchor: {
+          x: 10,
+          y: 10,
         },
       };
 
