@@ -4,7 +4,7 @@ export { default as createIndex } from './core/createIndex';
 export { default as createConnector } from './core/createConnector';
 
 // Utlis
-export { HIGHLIGHT_TAGS, parseAlgoliaHit } from './core/highlight';
+export { HIGHLIGHT_TAGS } from './core/highlight';
 export { default as version } from './core/version';
 
 // Widgets
