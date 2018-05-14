@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { setAddon, storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import JSXAddon from 'storybook-addon-jsx';
-import { Configure } from '../packages/react-instantsearch/dom';
+import { Configure, Highlight } from '../packages/react-instantsearch/dom';
+import { connectHits } from '../packages/react-instantsearch/connectors';
 import {
   GoogleMapsLoader,
   GeoSearch,
@@ -382,6 +383,104 @@ stories
       filterProps,
     }
   );
+
+stories.addWithJSX('with hits communication (custom)', () => {
+  const CustomHits = connectHits(({ hits, selectedHit, onHitOver }) => (
+    <div className="hits">
+      {hits.map(hit => {
+        const classNames = [
+          'hit',
+          'hit--airbnb',
+          selectedHit && selectedHit.objectID === hit.objectID
+            ? 'hit--airbnb-active'
+            : '',
+        ];
+
+        return (
+          <div
+            key={hit.objectID}
+            className={classNames.join(' ').trim()}
+            onMouseEnter={() => onHitOver(hit)}
+            onMouseLeave={() => onHitOver(null)}
+          >
+            <div className="hit-content">
+              <div>
+                <Highlight attribute="name" hit={hit} />
+                <span> - ${hit.price}</span>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  ));
+
+  class Example extends Component {
+    state = {
+      selectedHit: null,
+    };
+
+    onHitOver = hit =>
+      this.setState(() => ({
+        selectedHit: hit,
+      }));
+
+    renderGeoHit = hit => {
+      const { selectedHit } = this.state;
+
+      const classNames = [
+        'my-custom-marker',
+        selectedHit && selectedHit.objectID === hit.objectID
+          ? 'my-custom-marker--active'
+          : '',
+      ];
+
+      return (
+        <HTMLMarker
+          key={hit.objectID}
+          hit={hit}
+          anchor={{ x: 0, y: 5 }}
+          onMouseEnter={() => this.onHitOver(hit)}
+          onMouseLeave={() => this.onHitOver(null)}
+        >
+          <div className={classNames.join(' ').trim()}>
+            <span>{hit.price_formatted}</span>
+          </div>
+        </HTMLMarker>
+      );
+    };
+
+    render() {
+      const { selectedHit } = this.state;
+
+      return (
+        <WrapWithHits
+          indexName="airbnb"
+          linkedStoryGroup="GeoSearch"
+          hitsElement={
+            <CustomHits selectedHit={selectedHit} onHitOver={this.onHitOver} />
+          }
+        >
+          <Configure aroundLatLngViaIP hitsPerPage={20} />
+
+          <Container>
+            <GoogleMapsLoader apiKey={apiKey}>
+              {google => (
+                <GeoSearch google={google}>
+                  {({ hits }) => (
+                    <Fragment>{hits.map(this.renderGeoHit)}</Fragment>
+                  )}
+                </GeoSearch>
+              )}
+            </GoogleMapsLoader>
+          </Container>
+        </WrapWithHits>
+      );
+    }
+  }
+
+  return <Example />;
+});
 
 stories.addWithJSX('with unmount', () => {
   class Example extends Component {
