@@ -22,7 +22,7 @@
     "docs:doctoc": "doctoc --maxlevel 1 README.md",
     "test": "./scripts/test.sh",
     "test:recipes": "./scripts/test:recipes.sh",
-    "test:build": "NODE_ENV=production ./scripts/test:build.sh",
+    "test:build": "yarn build && yarn test:size",
     "test:regressions": "webpack --config test/regressions/webpack.config.js && rm -rf test/screenshots && happo run && babel-node ./test/regressions/normalize.js",
     "test:size": "lerna run test:size --scope react-* --parallel",
     "argos": "argos upload test/screenshots --token $ARGOS_TOKEN || true",
