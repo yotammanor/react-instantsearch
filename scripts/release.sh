@@ -22,9 +22,7 @@ fi
 # npm owner add and npm whoami cannot be moved to yarn yet
 for package in packages/* ; do
   if [[ $(cd $package && npm owner ls) != *"$(npm whoami)"* ]]; then
-    printf "\n"
     printf "Release: Not an owner of \"$package\", ask for it\n"
-    printf "\n"
     exit 1
   fi
 done
