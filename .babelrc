@@ -21,6 +21,27 @@
         "transform-react-jsx-source"
       ]
     },
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "browsers": [
+                "last 2 versions",
+                "ie >= 9"
+              ]
+            }
+          }
+        ],
+        "react",
+        "stage-2"
+      ],
+      "plugins": [
+        "lodash",
+        "transform-react-jsx-source"
+      ]
+    },
     "production": {
       "presets": [
         [
