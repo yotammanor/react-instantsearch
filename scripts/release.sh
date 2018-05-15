@@ -68,10 +68,12 @@ fi
 printf "\n=> Release: please type the new chosen version $additionalInfo >"
 read -e newVersion
 
-(
-cd packages/react-instantsearch
-mversion $newVersion
-)
+for package in packages/* ; do
+  (
+    cd $package
+    mversion $newVersion
+  )
+done
 
 mversion $newVersion
 
