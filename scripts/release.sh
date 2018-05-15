@@ -68,6 +68,11 @@ fi
 printf "\n=> Release: please type the new chosen version $additionalInfo >"
 read -e newVersion
 
+if [[ "$newVersion" == "" ]]; then
+  printf "\nRelease: The version must be provided\n"
+  exit 1
+fi
+
 for package in packages/* ; do
   (
     cd $package
