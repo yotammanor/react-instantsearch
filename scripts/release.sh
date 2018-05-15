@@ -127,10 +127,11 @@ VERSION=$newVersion npm run build-and-publish -- -n "$npmFlags"
 
 printf "\n\nRelease: Package was published to npm."
 
-for d in examples/* ; do
-    cd $d
+for example in examples/* ; do
+  (
+    cd $example
     yarn upgrade react-instantsearch@$newVersion
-    cd ../..
+  )
 done
 
 commitMessage="chore(deps): update examples to react-instantsearch v$newVersion"
