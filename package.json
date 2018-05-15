@@ -8,7 +8,6 @@
   ],
   "scripts": {
     "bootstrap": "git clean -dfX && yarn",
-    "clean": "lerna run clean --scope react-* --parallel",
     "changelog": "conventional-changelog --preset angular --output-unreleased",
     "start": "(cd docgen && yarn start) & yarn docs:storybook-start & wait",
     "build": "lerna run build --scope react-*",
