@@ -7,8 +7,9 @@ if [ "$CI" = "true" ]
   then jest --runInBand
   else jest
 fi
+
 yarn lint
 yarn test:regressions
 yarn argos
-NODE_ENV=production yarn test:build
+yarn test:build
 yarn test:recipes
