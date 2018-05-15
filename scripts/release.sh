@@ -115,15 +115,12 @@ git push origin --tags
 
 printf "\n\nRelease: pushed to github, publish on npm"
 
-npmFlags=''
-if $beta; then
-  npmFlags="--tag beta"
+if $beta
+then
+  VERSION=$newVersion lerna run release:beta --scope react-*
+else
+  VERSION=$newVersion lerna run release --scope react-*
 fi
-
-(
-cd packages/react-instantsearch
-VERSION=$newVersion npm run build-and-publish -- -n "$npmFlags"
-)
 
 printf "\n\nRelease: Package was published to npm."
 
