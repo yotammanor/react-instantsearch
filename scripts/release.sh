@@ -73,6 +73,16 @@ if [[ "$newVersion" == "" ]]; then
   exit 1
 fi
 
+versionFilePath='packages/react-instantsearch-core/src/core/version.js'
+if [[ ! -f "$versionFilePath" ]]; then
+  printf "\nRelease: Unable to bump the version at:\n"
+  printf "$versionFilePath\n"
+  exit 1
+fi
+
+# update version in source file
+echo "export default '$newVersion';" > $versionFilePath;
+
 for package in packages/* ; do
   (
     cd $package
