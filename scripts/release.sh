@@ -38,18 +38,17 @@ if [[ -n $(git status --porcelain) ]]; then
   exit 1
 fi
 
-# printf "\n\nRelease: update working tree"
+printf "Release: update working tree\n"
 git pull origin master
 git fetch origin --tags
 
-# printf "Release: install dependencies"
-yarn bootstrap
+printf "\nRelease: install dependencies\n"
+yarn
 
-# No need for complex release process for now, only patch releases should be ok
 currentVersion=`cat package.json | json version`
 
 # header
-printf "\n\nRelease: current version is %s" $currentVersion
+printf "\nRelease: current version is %s" $currentVersion
 printf "\nRelease: a changelog will be generated only if a fix/feat/performance/breaking token is found in git log"
 printf "\nRelease: you must choose a new ve.rs.ion (semver)"
 printf "\nRelease: press q to exit the next screen\n\n"
@@ -65,8 +64,11 @@ if $beta; then
 fi
 
 # choose and bump new version
-printf "\n=> Release: please type the new chosen version $additionalInfo >"
+printf "\n=> Release: please type the new chosen version $additionalInfo > "
+
 read -e newVersion
+
+printf "\n"
 
 if [[ "$newVersion" == "" ]]; then
   printf "\nRelease: The version must be provided\n"
@@ -83,6 +85,7 @@ fi
 # update version in source file
 echo "export default '$newVersion';" > $versionFilePath;
 
+# update version in each packages
 for package in packages/* ; do
   (
     cd $package
@@ -90,15 +93,16 @@ for package in packages/* ; do
   )
 done
 
+# update version in top level package
 mversion $newVersion
 
 # update changelog
-printf "\n\nRelease: update changelog"
+printf "\nRelease: update changelog\n"
 changelog=`conventional-changelog -p angular`
 conventional-changelog --preset angular --infile CHANGELOG.md --same-file
 
 # regenerate readme TOC
-printf "\n\nRelease: generate TOCS"
+printf "\nRelease: generate TOCS\n"
 yarn doctoc
 
 # git add and tag
@@ -113,7 +117,7 @@ read -p "=> Release: when ready, press [ENTER] to push to github and publish the
 git push origin master
 git push origin --tags
 
-printf "\n\nRelease: pushed to github, publish on npm"
+printf "\n\nRelease: pushed to GitHub, publish on NPM\n"
 
 if $beta
 then
@@ -122,7 +126,7 @@ else
   VERSION=$newVersion lerna run release --scope react-*
 fi
 
-printf "\n\nRelease: Package was published to npm."
+printf "\nRelease: Package was published to NPM\n"
 
 for example in examples/* ; do
   (
