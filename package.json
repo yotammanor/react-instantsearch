@@ -7,7 +7,7 @@
     "docgen"
   ],
   "scripts": {
-    "bootstrap": "git clean -dfX && yarn && lerna run build:cjs --scope react-instantsearch-*",
+    "bootstrap": "yarn && lerna run build:cjs --scope react-instantsearch-*",
     "changelog": "conventional-changelog --preset angular --output-unreleased",
     "start": "(cd docgen && yarn start) & yarn docs:storybook-start & wait",
     "build": "lerna run build --scope react-*",
