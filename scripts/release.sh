@@ -81,16 +81,18 @@ fi
 # update version in source file
 echo "export default '$newVersion';" > $versionFilePath;
 
-# update version in each packages
-for package in packages/* ; do
-  (
-    cd $package
-    mversion $newVersion
-  )
-done
-
 # update version in top level package
 mversion $newVersion
+
+printf "\n"
+
+# update version in packages & dependencies
+lerna publish \
+  --scope react-* \
+  --repo-version $newVersion \
+  --skip-git \
+  --skip-npm \
+  --yes
 
 # update changelog
 printf "\nRelease: update changelog\n"
