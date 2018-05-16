@@ -1,4 +1,4 @@
-import algoliasearch from 'algoliasearch/lite';
+import algoliasearch from 'algoliasearch/reactnative';
 import { View } from 'react-native';
 import { createInstantSearch } from 'react-instantsearch-core';
 
