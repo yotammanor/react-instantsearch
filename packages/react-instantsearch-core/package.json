@@ -40,12 +40,12 @@
     "release:beta": "yarn clean && yarn build && yarn pack --tag beta"
   },
   "dependencies": {
-    "algoliasearch": "^3.24.0",
-    "algoliasearch-helper": "^2.21.0",
+    "algoliasearch-helper": "^2.26.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10"
   },
   "devDependencies": {
+    "algoliasearch": "3.27.1",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-plugin-external-helpers": "6.22.0",

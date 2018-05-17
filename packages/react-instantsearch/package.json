@@ -38,9 +38,9 @@
     "release:beta": "yarn clean && yarn preparePackageFolder && yarn build && cd dist && yarn pack --tag beta"
   },
   "dependencies": {
-    "react-instantsearch-core": "^5.0.1",
-    "react-instantsearch-dom": "^5.0.1",
-    "react-instantsearch-native": "^5.0.1"
+    "react-instantsearch-core": "^5.0.3",
+    "react-instantsearch-dom": "^5.0.3",
+    "react-instantsearch-native": "^5.0.3"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",

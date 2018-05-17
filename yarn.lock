@@ -990,7 +990,7 @@ algolia-frontend-components@0.0.35:
     webpack "^2.2.1"
     webpack-dev-server "^2.4.1"
 
-algoliasearch-helper@^2.21.0, algoliasearch-helper@^2.26.0:
+algoliasearch-helper@^2.26.0:
   version "2.26.0"
   resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-2.26.0.tgz#cb784b692a5aacf17062493cb0b94f6d60d30d0f"
   dependencies:
@@ -999,7 +999,7 @@ algoliasearch-helper@^2.21.0, algoliasearch-helper@^2.26.0:
     qs "^6.5.1"
     util "^0.10.3"
 
-algoliasearch@3.27.1, algoliasearch@^3.24.0, algoliasearch@^3.27.1:
+algoliasearch@3.27.1, algoliasearch@^3.27.1:
   version "3.27.1"
   resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.27.1.tgz#e1af42b97dbf44a2dd3a8c907be99c0c34e48414"
   dependencies:
