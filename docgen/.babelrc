@@ -27,7 +27,6 @@
             "regenerator": true
           }
         ],
-        "transform-react-jsx-source",
         "react-hot-loader/babel",
         "transform-regenerator"
       ]
