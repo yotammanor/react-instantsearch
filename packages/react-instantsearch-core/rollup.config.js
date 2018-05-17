@@ -46,7 +46,7 @@ const createConfiguration = ({ name, minify = false } = {}) => ({
   external: ['react'],
   output: {
     file: `dist/umd/ReactInstantSearch${name}${minify ? '.min' : ''}.js`,
-    name: `ReactInstantSearch.${name}`,
+    name: `ReactInstantSearch${name}`,
     format: 'umd',
     globals: {
       react: 'React',
