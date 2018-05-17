@@ -4,6 +4,7 @@
   "description": "⚡ Lightning-fast search for React and React Native apps, by Algolia",
   "main": "index.js",
   "module": "es/index.js",
+  "sideEffects": false,
   "license": "MIT",
   "homepage": "https://community.algolia.com/react-instantsearch",
   "repository": {
@@ -20,6 +21,7 @@
     "fast",
     "instantsearch",
     "react",
+    "react-dom",
     "react-native",
     "search"
   ],

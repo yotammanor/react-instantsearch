@@ -6,10 +6,23 @@
   "module": "dist/es/index.js",
   "sideEffects": false,
   "license": "MIT",
+  "homepage": "https://community.algolia.com/react-instantsearch",
   "repository": {
     "type": "git",
     "url": "https://github.com/algolia/react-instantsearch"
   },
+  "author": {
+    "name": "Algolia, Inc.",
+    "url": "https://www.algolia.com"
+  },
+  "keywords": [
+    "algolia",
+    "components",
+    "fast",
+    "instantsearch",
+    "react",
+    "search"
+  ],
   "files": [
     "README.md",
     "dist"
