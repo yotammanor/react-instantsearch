@@ -7,8 +7,8 @@
     "docgen"
   ],
   "scripts": {
-    "bootstrap": "yarn && lerna run build:cjs --scope react-instantsearch-*",
     "changelog": "conventional-changelog --preset angular --output-unreleased",
+    "prestart": "lerna run build:cjs --scope react-instantsearch-*",
     "start": "(cd docgen && yarn start) & yarn docs:storybook-start & wait",
     "build": "lerna run build --scope react-*",
     "watch": "lerna run watch --scope react-instantsearch-* --parallel",
