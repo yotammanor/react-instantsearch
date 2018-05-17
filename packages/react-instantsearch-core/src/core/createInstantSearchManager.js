@@ -1,4 +1,4 @@
-import { omit, isEmpty } from 'lodash';
+import { omit, isEmpty, find } from 'lodash';
 import algoliasearchHelper, { SearchParameters } from 'algoliasearch-helper';
 import createWidgetsManager from './createWidgetsManager';
 import createStore from './createStore';
@@ -16,7 +16,7 @@ import { HIGHLIGHT_TAGS } from './highlight';
 export default function createInstantSearchManager({
   indexName,
   initialState = {},
-  algoliaClient,
+  searchClient,
   resultsState,
   stalledSearchDelay,
 }) {
@@ -27,7 +27,7 @@ export default function createInstantSearchManager({
 
   let stalledSearchTimer = null;
 
-  const helper = algoliasearchHelper(algoliaClient, indexName, baseSP);
+  const helper = algoliasearchHelper(searchClient, indexName, baseSP);
   helper.on('result', handleSearchSuccess);
   helper.on('error', handleSearchError);
   helper.on('search', handleNewSearch);
@@ -101,7 +101,7 @@ export default function createInstantSearchManager({
         const targetedIndex = widget.context.multiIndexContext
           ? widget.context.multiIndexContext.targetedIndex
           : widget.props.indexName;
-        const index = indices.find(i => i.targetedIndex === targetedIndex);
+        const index = find(indices, i => i.targetedIndex === targetedIndex);
         if (index) {
           index.widgets.push(widget);
         } else {

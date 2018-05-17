@@ -10,6 +10,9 @@ import RatingMenu from '../components/RatingMenu';
  * @requirements The attribute passed to the `attribute` prop must be holding numerical values.
  * @name RatingMenu
  * @kind widget
+ * @requirements The attribute passed to the `attribute` prop must be present in “attributes for faceting”
+ * on the Algolia dashboard or configured as `attributesForFaceting` via a set settings call to the Algolia API.
+ * The values inside the attribute must be JavaScript numbers (not strings).
  * @propType {string} attribute - the name of the attribute in the record
  * @propType {number} [min] - Minimum value for the rating. When this isn't set, the minimum value will be automatically computed by Algolia using the data in the index.
  * @propType {number} [max] - Maximum value for the rating. When this isn't set, the maximum value will be automatically computed by Algolia using the data in the index.
@@ -30,7 +33,7 @@ import RatingMenu from '../components/RatingMenu';
  * @translationKey ratingLabel - Label value for the rating link
  * @example
  * import React from 'react';
- * import { InstantSearch, RefinementList } from 'react-instantsearch/dom';
+ * import { InstantSearch, RatingMenu } from 'react-instantsearch/dom';
  *
  * const App = () => (
  *   <InstantSearch
@@ -38,7 +41,7 @@ import RatingMenu from '../components/RatingMenu';
  *     apiKey="6be0576ff61c053d5f9a3225e2a90f76"
  *     indexName="ikea"
  *   >
- *     <RefinementList attribute="colors" />
+ *     <RatingMenu attribute="rating" />
  *   </InstantSearch>
  * );
  */

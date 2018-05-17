@@ -34,7 +34,9 @@ import PropTypes from 'prop-types';
 class Index extends Component {
   constructor(props, context) {
     super(props);
-    const { ais: { widgetsManager } } = context;
+    const {
+      ais: { widgetsManager },
+    } = context;
 
     /*
      we want <Index> to be seen as a regular widget.

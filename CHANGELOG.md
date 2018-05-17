@@ -1,3 +1,23 @@
+<a name="5.0.3"></a>
+## [5.0.3](https://github.com/algolia/react-instantsearch/compare/v5.0.2...v5.0.3) (2018-04-03)
+
+
+### Bug Fixes
+
+* revert dependencies as devDependencies ([#1135](https://github.com/algolia/react-instantsearch/issues/1135)) ([6b627bb](https://github.com/algolia/react-instantsearch/commit/6b627bb))
+
+
+
+<a name="5.0.2"></a>
+## [5.0.2](https://github.com/algolia/react-instantsearch/compare/v5.0.1...v5.0.2) (2018-04-03)
+
+
+### Bug Fixes
+
+* use lodash version of unsupported Array.{fill, find} ([#1118](https://github.com/algolia/react-instantsearch/issues/1118)) ([ea7bf42](https://github.com/algolia/react-instantsearch/commit/ea7bf42))
+
+
+
 <a name="5.0.1"></a>
 ## [5.0.1](https://github.com/algolia/react-instantsearch/compare/v5.0.0...v5.0.1) (2018-03-12)
 
@@ -16,7 +36,7 @@ This new version introduce a complete revamp of the naming and the HTML output o
 
 This release also introduces a new CSS naming convention which will be reused across all InstantSearch libraries. This will enable the possibility to develop cross-libraries CSS themes easily.
 
-You can find all the informations for the migration [in our documentation](https://community.algolia.com/react-instantsearch/guide/migration_guide_v5).
+You can find all the informations for the migration [in our documentation](https://community.algolia.com/react-instantsearch/guide/Migration_guide_v5.html).
 
 
 
@@ -76,7 +96,7 @@ This new version introduce a complete revamp of the naming and the HTML output o
 
 This release also introduces a new CSS naming convention which will be reused across all InstantSearch libraries. This will enable the possibility to develop cross-libraries CSS themes easily.
 
-You can find all the informations for the migration [in our documentation](https://react-instantsearch-beta.netlify.com/react-instantsearch/guide/migration_guide_v5).
+You can find all the informations for the migration [in our documentation](https://community.algolia.com/react-instantsearch/guide/Migration_guide_v5.html).
 
 
 

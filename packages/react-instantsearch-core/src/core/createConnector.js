@@ -1,4 +1,4 @@
-import { has, isEqual } from 'lodash';
+import { has, isEqual, find } from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { shallowEqual, getDisplayName, removeEmptyKey } from './utils';
@@ -61,7 +61,9 @@ export default function createConnector(connectorDesc) {
       constructor(props, context) {
         super(props, context);
 
-        const { ais: { store, widgetsManager } } = context;
+        const {
+          ais: { store, widgetsManager },
+        } = context;
         const canRender = false;
         this.state = {
           props: this.getProvidedProps({ ...props, canRender }),
@@ -82,7 +84,8 @@ export default function createConnector(connectorDesc) {
           this.unregisterWidget = widgetsManager.registerWidget(this);
         }
         if (process.env.NODE_ENV === 'development') {
-          const onlyGetProvidedPropsUsage = !Object.keys(connectorDesc).find(
+          const onlyGetProvidedPropsUsage = !find(
+            Object.keys(connectorDesc),
             key =>
               [
                 'getMetadata',
@@ -218,7 +221,9 @@ export default function createConnector(connectorDesc) {
       }
 
       getProvidedProps = props => {
-        const { ais: { store } } = this.context;
+        const {
+          ais: { store },
+        } = this.context;
         const {
           results,
           searching,

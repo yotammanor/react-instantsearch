@@ -1,6 +1,6 @@
 {
   "name": "react-instantsearch-dom",
-  "version": "5.0.1",
+  "version": "5.0.3",
   "description": "⚡ Lightning-fast search for React DOM, by Algolia",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -41,8 +41,8 @@
     "release:beta": "yarn clean && yarn build && yarn pack --tag beta"
   },
   "dependencies": {
-    "algoliasearch": "^3.24.0",
-    "algoliasearch-helper": "^2.21.0",
+    "algoliasearch": "^3.27.1",
+    "algoliasearch-helper": "^2.26.0",
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
@@ -53,7 +53,7 @@
     "babel-core": "6.26.0",
     "babel-plugin-external-helpers": "6.22.0",
     "babel-plugin-lodash": "3.3.2",
-    "babel-preset-env": "1.6.1",
+    "babel-preset-env": "1.7.0",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
     "bundlesize": "0.17.0",
@@ -61,14 +61,14 @@
     "enzyme-adapter-react-16": "1.1.1",
     "enzyme-to-json": "3.3.3",
     "jest": "22.4.3",
-    "react": "16.2.0",
-    "react-dom": "16.2.0",
-    "react-test-renderer": "16.2.0",
-    "rollup": "0.57.1",
-    "rollup-plugin-babel": "3.0.3",
-    "rollup-plugin-commonjs": "9.1.0",
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
+    "react-test-renderer": "16.3.2",
+    "rollup": "0.59.1",
+    "rollup-plugin-babel": "3.0.4",
+    "rollup-plugin-commonjs": "9.1.3",
     "rollup-plugin-filesize": "1.5.0",
-    "rollup-plugin-node-globals": "1.2.0",
+    "rollup-plugin-node-globals": "1.2.1",
     "rollup-plugin-node-resolve": "3.3.0",
     "rollup-plugin-replace": "2.0.0",
     "rollup-plugin-uglify": "3.0.0"
@@ -85,7 +85,7 @@
   "bundlesize": [
     {
       "path": "dist/umd/ReactInstantSearchDOM.min.js",
-      "maxSize": "62 kB"
+      "maxSize": "63 kB"
     }
   ]
 }
