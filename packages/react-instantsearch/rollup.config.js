@@ -52,7 +52,7 @@ const createConfiguration = ({ input, name, minify = false } = {}) => ({
       react: 'React',
       'react-dom': 'ReactDOM',
     },
-    banner: createLicence(name),
+    banner: createLicence(),
     sourcemap: true,
   },
   plugins: plugins.concat(
@@ -60,7 +60,7 @@ const createConfiguration = ({ input, name, minify = false } = {}) => ({
       minify &&
         uglify({
           output: {
-            preamble: createLicence(name),
+            preamble: createLicence(),
           },
         }),
     ])
