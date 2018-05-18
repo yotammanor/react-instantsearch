@@ -1,1 +1,1 @@
-export { default as createConnector } from 'react-instantsearch-core';
+export { createConnector } from 'react-instantsearch-core';
