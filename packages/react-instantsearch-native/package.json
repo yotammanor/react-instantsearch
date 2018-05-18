@@ -35,8 +35,8 @@
     "build:cjs": "babel src --out-dir dist/cjs --ignore __tests__,__mocks__ --quiet",
     "build:es": "BABEL_ENV=es babel src --out-dir dist/es --ignore __tests__,__mocks__ --quiet",
     "test": "jest",
-    "release": "yarn clean && yarn build && yarn pack",
-    "release:beta": "yarn clean && yarn build && yarn pack --tag beta"
+    "release": "yarn clean && yarn build && yarn publish",
+    "release:beta": "yarn clean && yarn build && yarn publish --tag beta"
   },
   "dependencies": {
     "algoliasearch": "^3.27.1",

@@ -34,8 +34,8 @@
     "test": "jest",
     "test:size": "bundlesize",
     "preparePackageFolder": "mkdir -p dist && cp {package.json,README.md} dist",
-    "release": "yarn clean && yarn preparePackageFolder && yarn build && cd dist && yarn pack",
-    "release:beta": "yarn clean && yarn preparePackageFolder && yarn build && cd dist && yarn pack --tag beta"
+    "release": "yarn clean && yarn preparePackageFolder && yarn build && cd dist && yarn publish",
+    "release:beta": "yarn clean && yarn preparePackageFolder && yarn build && cd dist && yarn publish --tag beta"
   },
   "dependencies": {
     "react-instantsearch-core": "^5.0.3",
